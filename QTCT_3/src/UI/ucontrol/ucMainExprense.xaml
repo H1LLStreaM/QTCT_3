@@ -1,0 +1,138 @@
+﻿<UserControl x:Class="QTCT_3.src.UI.ucontrol.ucMainExprense"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+             xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+             xmlns:local="clr-namespace:cis.cure;assembly=cis.cure.pub" 
+             xmlns:localcommon="clr-namespace:cis.cure.common;assembly=cis.cure.pub"
+             mc:Ignorable="d" Background="#FFEDF5F5" Height="400" Width="1000" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\..\..\ControlStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90"/>
+            <RowDefinition/>
+            <RowDefinition Height="52"/>
+        </Grid.RowDefinitions>
+        <Border >
+            <Grid>
+                <RadioButton x:Name="rdo1" Content="个人报销" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Checked="rdo1_Checked"/>
+                <RadioButton x:Name="rdo2" Content="项目报销" HorizontalAlignment="Left" Margin="113,20,0,0" VerticalAlignment="Top" Checked="rdo2_Checked" />
+                <Label Content="日   期" HorizontalAlignment="Left" Margin="20,51,0,0" VerticalAlignment="Top" Width="47"/>
+                <Button x:Name="btnSearch" Content="查  询" HorizontalAlignment="Left" Margin="559,19,0,0" VerticalAlignment="Top" Width="57" Height="51" Click="btnSearch_Click"/>
+                <TextBox x:Name="txtProj" IsReadOnly="True"  HorizontalAlignment="Left" Height="23" Margin="193,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" KeyDown="txtProj_KeyDown" PreviewMouseLeftButtonDown="txtProj_PreviewMouseLeftButtonDown"/>
+                <Image x:Name="imgClear" HorizontalAlignment="Left" Height="20" Margin="480,17,0,0" VerticalAlignment="Top" Width="21" Source="/QTEXPENSE;component/image/Close_32x32.png" MouseLeftButtonDown="imgClear_MouseLeftButtonDown" RenderTransformOrigin="1.683,0.583"/>
+                <Button x:Name="btnPrint" Content="打  印" HorizontalAlignment="Left" Margin="632,19,0,0" VerticalAlignment="Top" Width="57" Height="50" Click="btnPrint_Click"/>
+                <ComboBox x:Name="cmbYear" HorizontalAlignment="Left" Margin="72,51,0,0" VerticalAlignment="Top" Width="74" SelectedIndex="7" >
+                    <ComboBoxItem>2010</ComboBoxItem>
+                    <ComboBoxItem>2011</ComboBoxItem>
+                    <ComboBoxItem>2012</ComboBoxItem>
+                    <ComboBoxItem>2013</ComboBoxItem>
+                    <ComboBoxItem>2014</ComboBoxItem>
+                    <ComboBoxItem>2015</ComboBoxItem>
+                    <ComboBoxItem>2016</ComboBoxItem>
+                    <ComboBoxItem>2017</ComboBoxItem>
+                    <ComboBoxItem>2018</ComboBoxItem>
+                    <ComboBoxItem>2019</ComboBoxItem>
+                    <ComboBoxItem>2020</ComboBoxItem>
+                    <ComboBoxItem>2021</ComboBoxItem>
+                    <ComboBoxItem>2022</ComboBoxItem>
+                    <ComboBoxItem>2023</ComboBoxItem>
+                    <ComboBoxItem>2024</ComboBoxItem>
+                    <ComboBoxItem>2025</ComboBoxItem>
+                </ComboBox>
+                <Label Content="年" HorizontalAlignment="Left" Margin="151,51,0,0" VerticalAlignment="Top"/>
+                <ComboBox x:Name="cmbMonth" HorizontalAlignment="Left" Margin="179,51,0,0" VerticalAlignment="Top" Width="42" SelectedIndex="0">
+                    <ComboBoxItem>1</ComboBoxItem>
+                    <ComboBoxItem>2</ComboBoxItem>
+                    <ComboBoxItem>3</ComboBoxItem>
+                    <ComboBoxItem>4</ComboBoxItem>
+                    <ComboBoxItem>5</ComboBoxItem>
+                    <ComboBoxItem>6</ComboBoxItem>
+                    <ComboBoxItem>7</ComboBoxItem>
+                    <ComboBoxItem>8</ComboBoxItem>
+                    <ComboBoxItem>9</ComboBoxItem>
+                    <ComboBoxItem>10</ComboBoxItem>
+                    <ComboBoxItem>11</ComboBoxItem>
+                    <ComboBoxItem>12</ComboBoxItem>
+                </ComboBox>
+                <Label Content="月" HorizontalAlignment="Left" Margin="226,50,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.262,1.346"/>
+                <Label Content="员工工号:" HorizontalAlignment="Left" Margin="326,50,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtUser" HorizontalAlignment="Left" Height="23" Margin="392,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="109" RenderTransformOrigin="0.514,1.101" KeyDown="txtUser_KeyDown" PreviewMouseLeftButtonDown="txtUser_PreviewMouseLeftButtonDown"/>
+                <Image x:Name="imgDel2" HorizontalAlignment="Left" Height="21" Margin="480,52,0,0" VerticalAlignment="Top" Width="21" Source="/QTEXPENSE;component/image/Close_32x32.png" MouseLeftButtonDown="imgDel2_MouseLeftButtonDown"/>
+                <Label x:Name="labTotal" Margin="785,53,-25,0" VerticalAlignment="Top" Height="25" Foreground="#FFF70707" FontWeight="SemiBold"/>
+                <Button x:Name="btnPass" Content="全部审核" HorizontalAlignment="Left" Margin="707,20,0,0" VerticalAlignment="Top" Width="65" Height="49" Click="btnPass_Click"/>
+            </Grid>
+        </Border>
+        <Border Grid.Row="1" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="21*"/>
+                    <RowDefinition Height="43*"/>
+                </Grid.RowDefinitions>
+                <DataGrid  Name="dgExpense" VerticalScrollBarVisibility="Auto" AutoGenerateColumns="False"
+                          HorizontalScrollBarVisibility="Auto"  ItemsSource="{Binding}"  Grid.Row="1"
+                          SelectionMode="Single" SelectionUnit="FullRow" IsReadOnly="True" CanUserSortColumns="False" MouseDoubleClick="dgExpense_MouseDoubleClick" LoadingRow="dgExpense_LoadingRow">
+                    <DataGrid.ContextMenu>
+                        <ContextMenu Name="contextMenuLogs">
+                            <MenuItem Name="menuEdit2" Header="驳回" Click="menuEdit2_Click"/>
+                            <MenuItem Name="menuPass2" Header="审核通过" Click="menuPass2_Click"/>
+                            <MenuItem Name="menuEdit" Header="驳回" Click="menuEdit_Click"/>
+                            <MenuItem Name="menuPass" Header="审核通过" Click="menuPass_Click"/>
+                        </ContextMenu>
+                    </DataGrid.ContextMenu>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn x:Name="col12" Header="流水号"  Binding="{Binding Id}" Width="50"/>
+                        <DataGridTextColumn x:Name="col7" Header="年度"  Binding="{Binding YEAR}" Width="60"/>
+                        <DataGridTextColumn x:Name="col8" Header="月度"  Binding="{Binding MONTH}" Width="60"/>
+                        <DataGridTextColumn x:Name="col16" Header="发票号码"  Binding="{Binding BILLNO}" Width="90"/>
+                        <DataGridTextColumn x:Name="col10" Header="填报人"  Binding="{Binding OPNAME}" Width="80"/>
+                        <DataGridTextColumn x:Name="col1" Header="报销类型"  Binding="{Binding EXPENS}" Width="80"/>
+                        <DataGridTextColumn x:Name="col2" Header="发票日期"  Binding="{Binding CREATEDATE, StringFormat='yyyy/MM/dd' }" Width="110"/>
+                        <DataGridTemplateColumn Header="金 额" Width="90">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding MONEY}" Foreground="{Binding Path=ForeColor}" TextWrapping="Wrap" HorizontalAlignment="Right"></TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn x:Name="col4" Header="个人/项目"  Binding="{Binding OBJECTNAME}" Width="120"/>
+                        <DataGridTemplateColumn Header="" Width="25">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding STRGROUPNO}"  TextWrapping="Wrap" Foreground="#FFF30B0B" HorizontalAlignment="Right"></TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn x:Name="col15" Header="小计"  Binding="{Binding grouptotal}" Width="150"/>
+                        <DataGridTextColumn x:Name="col9" Header="备注"  Binding="{Binding COMMENTS}" Width="150"/>
+                        <DataGridTextColumn x:Name="col5" Header="财务审核"  Binding="{Binding StrResponseStatus}" Width="80"/>
+                        <DataGridTextColumn x:Name="col6" Header="驳回原因"  Binding="{Binding RESPONSE}" Width="150" />
+                        <DataGridTextColumn x:Name="col13" Header="领导审核"  Binding="{Binding StrLeaderResponseStatus}" Width="80"/>
+                        <DataGridTextColumn x:Name="col14" Header="驳回原因"  Binding="{Binding LEADERRESPONSE}" Width="150" />
+                    </DataGrid.Columns>
+                </DataGrid>
+                
+                <DataGrid x:Name="dgSummery" VerticalScrollBarVisibility="Auto" AutoGenerateColumns="False"
+                           HorizontalScrollBarVisibility="Auto"  ItemsSource="{Binding}"  
+                          SelectionMode="Single" SelectionUnit="FullRow" IsReadOnly="True" CanUserSortColumns="False" MouseLeftButtonUp="dgSummery_MouseLeftButtonUp" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn x:Name="col20" Header="姓名"  Binding="{Binding opname}" Width="90"/>
+                        <DataGridTextColumn x:Name="col21" Header="年度"  Binding="{Binding year}" Width="50"/>
+                        <DataGridTextColumn x:Name="col22" Header="月度"  Binding="{Binding month}" Width="50"/>
+                        <DataGridTextColumn x:Name="col23" Header="合计金额"  Binding="{Binding money}" Width="150"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+            
+        </Border>
+        <Label x:Name="labFoot" Content=""  Grid.Row="2" Foreground="#FFF60B0B" Margin="0,10,0,3" />
+    </Grid>
+</UserControl>

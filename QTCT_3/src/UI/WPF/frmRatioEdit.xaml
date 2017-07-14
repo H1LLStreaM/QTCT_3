@@ -1,0 +1,30 @@
+﻿<Window x:Class="QTCT_3.src.UI.WPF.frmRatioEdit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="提成比率设置" Height="430" Width="452" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\..\..\ControlStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="41*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="269*"/>
+            <RowDefinition Height="45*"/>
+        </Grid.RowDefinitions>
+        <Label Content="项  目:" HorizontalAlignment="Left" Margin="18,10,0,0" VerticalAlignment="Top" Height="25" Width="44"/>
+        <TextBox x:Name="txtProj" HorizontalAlignment="Left" Height="23" Margin="67,11,0,0" TextWrapping="Wrap" IsReadOnly="True" VerticalAlignment="Top" Width="300"  />
+        <Label Content="负责人:" HorizontalAlignment="Left" Margin="18,7.333,0,0" Grid.Row="1" VerticalAlignment="Top" Height="25" Width="48"/>
+        <StackPanel x:Name="panel1" HorizontalAlignment="Left" Height="31" Margin="71,6.333,0,0" Grid.Row="1" VerticalAlignment="Top" Width="198"/>
+        <Label Content="组   员:" HorizontalAlignment="Left" Margin="18,2,0,0" Grid.Row="2" VerticalAlignment="Top" Height="25" Width="47"/>
+        <WrapPanel x:Name="panel2" HorizontalAlignment="Left" Height="227" Margin="10,27,0,0" Grid.Row="2" VerticalAlignment="Top" Width="427" Orientation="Vertical"/>
+        <Button x:Name="btnSubmit" Content="确  定" HorizontalAlignment="Left" Margin="107,9.667,0,0" Grid.Row="3" VerticalAlignment="Top" Width="75" Click="btnSubmit_Click" Height="22"/>
+        <Button x:Name="btnClose" Content="取  消" HorizontalAlignment="Left" Margin="213,9.667,0,0" Grid.Row="3" VerticalAlignment="Top" Width="75" Click="btnClose_Click" Height="22"/>
+        <Label Content="请按10份分配" HorizontalAlignment="Left" Margin="10,8.667,0,0" Grid.Row="3" VerticalAlignment="Top" Width="88" Height="26" Foreground="#FFFB0000"/>
+
+    </Grid>
+</Window>

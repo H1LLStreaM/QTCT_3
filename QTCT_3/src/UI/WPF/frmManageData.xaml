@@ -1,0 +1,49 @@
+﻿<Window x:Class="QTCT_3.src.UI.WPF.frmManageData"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="系统参数设置" Height="470" Width="630" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\..\..\ControlStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <TabControl >
+            <TabItem Header="提成比例设置">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="32*"/>
+                        <RowDefinition Height="347*"/>
+                    </Grid.RowDefinitions>
+                    <WrapPanel  x:Name="panel1" Grid.Row="1" Margin="0,0,0.333,-0.333"/>
+                    <Button x:Name="btnAdd" Content="添  加" HorizontalAlignment="Left" Margin="26,5,0,0" VerticalAlignment="Top" Width="62" Height="22" Click="btnAdd_Click"/>
+                    <Button x:Name="btnSave" Content="保  存" HorizontalAlignment="Left" Margin="103,5,0,0" VerticalAlignment="Top" Width="65" Click="btnSave_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="项目管理成本设置">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="32*"/>
+                        <RowDefinition Height="347*"/>
+                    </Grid.RowDefinitions>
+                    <WrapPanel  x:Name="panel2" Grid.Row="1"/>
+                    <Button x:Name="btnAdd2" Content="添  加" HorizontalAlignment="Left" Margin="26,5,0,0" VerticalAlignment="Top" Width="62" Height="22" Click="btnAdd2_Click"/>
+                    <Button x:Name="btnSave2" Content="保  存" HorizontalAlignment="Left" Margin="103,5,0,0" VerticalAlignment="Top" Width="65" Click="btnSave2_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="提成比率分配">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="32*"/>
+                        <RowDefinition Height="347*"/>
+                    </Grid.RowDefinitions>
+                    <WrapPanel  x:Name="panel3" Grid.Row="1"/>
+                    <Button x:Name="btnAdd3" Content="添  加" HorizontalAlignment="Left" Margin="26,5,0,0" VerticalAlignment="Top" Width="62" Height="22" Click="btnAdd3_Click"/>
+                    <Button x:Name="btnSave3" Content="保  存" HorizontalAlignment="Left" Margin="103,5,0,0" VerticalAlignment="Top" Width="65" Click="btnSave3_Click"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

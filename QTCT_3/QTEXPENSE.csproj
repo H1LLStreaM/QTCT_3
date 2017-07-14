@@ -1,0 +1,572 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B2FADCB7-5484-48CD-AC96-D828FA8882E8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QTCT_3</RootNamespace>
+    <AssemblyName>QTEXPENSE</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="AjaxPro.2, Version=7.7.31.1, Culture=neutral, PublicKeyToken=eabb1b8f6347d5af, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\AjaxPro.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.Cells, Version=4.4.0.5, Culture=neutral, PublicKeyToken=5798b630e02d74fc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Aspose.Cells.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.ActiveRecord, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Castle.ActiveRecord.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Components.Validator, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Castle.Components.Validator.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.DynamicProxy, Version=1.1.5.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Castle.DynamicProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="cis.cure, Version=5.6.1.166, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\cis.cure.dll</HintPath>
+    </Reference>
+    <Reference Include="cis.cure.pub, Version=5.6.1.166, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\cis.cure.pub.dll</HintPath>
+    </Reference>
+    <Reference Include="cis.pub, Version=5.6.1.166, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\cis.pub.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.BonusSkins.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.BonusSkins.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.Data.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v11.1.Linq, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.Data.v11.1.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.OfficeSkins.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.OfficeSkins.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v11.1.Core, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.PivotGrid.v11.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v11.1.Core, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.Printing.v11.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v11.1.Core, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.RichEdit.v11.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.SpellChecker.v11.1.Core, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.SpellChecker.v11.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.Utils.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Win.Projects.v11.1.Design, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.Win.Projects.v11.1.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Charts.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.Xpf.Charts.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Core.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.Xpf.Core.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Docking.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.Xpf.Docking.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.Xpf.Grid.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v11.1.Core, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.Xpf.Grid.v11.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Layout.v11.1.Core, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.Xpf.Layout.v11.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.NavBar.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.Xpf.NavBar.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Ribbon.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.Xpf.Ribbon.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2007Black.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.Xpf.Themes.Office2007Black.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2007Blue.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.Xpf.Themes.Office2007Blue.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2007Silver.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.Xpf.Themes.Office2007Silver.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.XtraBars.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.XtraCharts.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v11.1.UI, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.XtraCharts.v11.1.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.XtraEditors.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.XtraGrid.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.XtraLayout.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.XtraNavBar.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraPivotGrid.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.XtraPivotGrid.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.XtraRichEdit.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.XtraScheduler.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v11.1.Core, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.XtraScheduler.v11.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v11.1.Extensions, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.XtraScheduler.v11.1.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraSpellChecker.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.XtraSpellChecker.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.XtraTreeList.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=1.0.0.3, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.2.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=1.2.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationUI, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="ReachFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Activities" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WY.Common, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\WY.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="WY.Library, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\WY.Library.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Comments\Comment.cs" />
+    <Compile Include="Comments\profileporcess.cs" />
+    <Compile Include="src\UI\ucontrol\frmWorkAttendanceMonth .xaml.cs">
+      <DependentUpon>frmWorkAttendanceMonth .xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\UI\ucontrol\ucMainExprense.xaml.cs">
+      <DependentUpon>ucMainExprense.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\UI\ucontrol\ucMainProj.xaml.cs">
+      <DependentUpon>ucMainProj.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\UI\ucontrol\ucNewExpense.xaml.cs">
+      <DependentUpon>ucNewExpense.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\UI\ucontrol\ucNewProject.xaml.cs">
+      <DependentUpon>ucNewProject.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\UI\ucontrol\ucPersonalRatio.xaml.cs">
+      <DependentUpon>ucPersonalRatio.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\UI\ucontrol\ucProfile.xaml.cs">
+      <DependentUpon>ucProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\UI\ucontrol\ucProjCost.xaml.cs">
+      <DependentUpon>ucProjCost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\UI\ucontrol\ucProjProfile.xaml.cs">
+      <DependentUpon>ucProjProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\UI\ucontrol\ucQTCTProfile.xaml.cs">
+      <DependentUpon>ucQTCTProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\UI\ucontrol\ucRatio.xaml.cs">
+      <DependentUpon>ucRatio.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\UI\ucontrol\ucRatio2.xaml.cs">
+      <DependentUpon>ucRatio2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\UI\ucontrol\ucRatio3.xaml.cs">
+      <DependentUpon>ucRatio3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\UI\ucontrol\uc_bill.xaml.cs">
+      <DependentUpon>uc_bill.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\UI\ucontrol\uc_user.xaml.cs">
+      <DependentUpon>uc_user.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\UI\ucontrol\ucPreview.xaml.cs">
+      <DependentUpon>ucPreview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\UI\ucontrol\ucPreview2.xaml.cs">
+      <DependentUpon>ucPreview2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\UI\WPF\femChangePwd.xaml.cs">
+      <DependentUpon>femChangePwd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\UI\WPF\frmBILL.xaml.cs">
+      <DependentUpon>frmBILL.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\UI\WPF\frmExpense.xaml.cs">
+      <DependentUpon>frmExpense.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\UI\WPF\frmMain.xaml.cs">
+      <DependentUpon>frmMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\UI\WPF\frmManageData.xaml.cs">
+      <DependentUpon>frmManageData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\UI\WPF\frmNewProjectType.xaml.cs">
+      <DependentUpon>frmNewProjectType.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\UI\WPF\frmObjectSearch.xaml.cs">
+      <DependentUpon>frmObjectSearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\UI\WPF\frmProject.xaml.cs">
+      <DependentUpon>frmProject.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\UI\WPF\frmProjRatio.xaml.cs">
+      <DependentUpon>frmProjRatio.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\UI\WPF\frmProsonalSalary.xaml.cs">
+      <DependentUpon>frmProsonalSalary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\UI\WPF\frmRatioEdit.xaml.cs">
+      <DependentUpon>frmRatioEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\UI\WPF\frmReponse.xaml.cs">
+      <DependentUpon>frmReponse.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\UI\WPF\frmReponse2.xaml.cs">
+      <DependentUpon>frmReponse2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\UI\WPF\frmUser.xaml.cs">
+      <DependentUpon>frmUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\UI\WPF\frmUserSearch.xaml.cs">
+      <DependentUpon>frmUserSearch.xaml</DependentUpon>
+    </Compile>
+    <Page Include="ControlStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="src\UI\ucontrol\frmWorkAttendanceMonth .xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\UI\ucontrol\ucMainExprense.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\UI\ucontrol\ucMainProj.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\UI\ucontrol\ucNewExpense.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\UI\ucontrol\ucNewProject.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\UI\ucontrol\ucPersonalRatio.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\UI\ucontrol\ucProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\UI\ucontrol\ucProjCost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\UI\ucontrol\ucProjProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\UI\ucontrol\ucQTCTProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\UI\ucontrol\ucRatio.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\UI\ucontrol\ucRatio2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\UI\ucontrol\ucRatio3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\UI\ucontrol\uc_bill.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\UI\ucontrol\uc_user.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\UI\ucontrol\ucPreview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\UI\ucontrol\ucPreview2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\UI\WPF\femChangePwd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\UI\WPF\frmBILL.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\UI\WPF\frmExpense.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\UI\WPF\frmMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\UI\WPF\frmManageData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\UI\WPF\frmNewProjectType.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\UI\WPF\frmObjectSearch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\UI\WPF\frmProject.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\UI\WPF\frmProjRatio.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\UI\WPF\frmProsonalSalary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\UI\WPF\frmRatioEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\UI\WPF\frmReponse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\UI\WPF\frmReponse2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\UI\WPF\frmUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\UI\WPF\frmUserSearch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MyProgram.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\Add_32x32.png" />
+    <Resource Include="image\Close_32x32.png" />
+    <Resource Include="image\default1.jpg" />
+    <Resource Include="image\Del_32x32.png" />
+    <Resource Include="image\Dictionary_32x32.png" />
+    <Resource Include="image\first.jpg" />
+    <Resource Include="image\Help_32x32.png" />
+    <Resource Include="image\History_32x32.png" />
+    <Resource Include="image\Info_32x32.png" />
+    <Resource Include="image\last.jpg" />
+    <Resource Include="image\next.jpg" />
+    <Resource Include="image\Other_32x32.png" />
+    <Resource Include="image\prior.jpg" />
+    <Resource Include="image\RevenueSplit_32x32.png" />
+    <Resource Include="image\State_32x32.png" />
+    <Resource Include="image\SY_32x32.png" />
+    <Resource Include="image\XY_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\login.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,8 @@
+﻿<Window x:Class="QTCT_3.src.UI.ucontrol.frmWorkAttendanceMonth"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="考勤导入" Height="79.333" Width="398.667">
+    <Grid>
+
+    </Grid>
+</Window>

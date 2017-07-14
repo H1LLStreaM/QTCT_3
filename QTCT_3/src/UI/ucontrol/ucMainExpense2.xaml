@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="QTCT_3.src.UI.ucontrol.ucMainExpense2"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+             xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+             xmlns:local="clr-namespace:cis.cure;assembly=cis.cure.pub" 
+             xmlns:localcommon="clr-namespace:cis.cure.common;assembly=cis.cure.pub"
+             mc:Ignorable="d" Height="400" Width="1000">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\..\..\ControlStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="269*"/>
+        </Grid.RowDefinitions>
+        <Border >
+            <Grid>
+                <RadioButton x:Name="rdo1" Content="个人报销" HorizontalAlignment="Left" Margin="783,49,0,0" VerticalAlignment="Top" Checked="rdo1_Checked" />
+                <RadioButton x:Name="rdo2" Content="项目报销" HorizontalAlignment="Left" Margin="783,23,0,0" VerticalAlignment="Top" Checked="rdo2_Checked" IsChecked="True" />
+                <Label Content="日     期" HorizontalAlignment="Left" Margin="20,51,0,0" VerticalAlignment="Top" Width="56"/>
+                <Label Content="到" HorizontalAlignment="Left" Margin="198,51,0,0" VerticalAlignment="Top"/>
+                <Button x:Name="btnSearch" Content="查  询" HorizontalAlignment="Left" Margin="718,19,0,0" VerticalAlignment="Top" Width="52" Height="51" Click="btnSearch_Click"/>
+                <Label Content="报销类型" HorizontalAlignment="Left" Margin="403,19,0,0" VerticalAlignment="Top"/>
+                <ComboBox x:Name="cmbExpenseType" HorizontalAlignment="Left" Margin="464,20,0,0" VerticalAlignment="Top" Width="101"/>
+                <CheckBox x:Name="chk" Content="启用" HorizontalAlignment="Left" Margin="337,56,0,0" VerticalAlignment="Top" Checked="chk_Checked"/>
+                <Label Content="工程名称" HorizontalAlignment="Left" Margin="20,16,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtProject" HorizontalAlignment="Left" Height="23" Margin="83,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302"  IsReadOnly="True" KeyDown="txtProject_KeyDown" PreviewMouseLeftButtonDown="txtProject_PreviewMouseLeftButtonDown"/>
+                <CheckBox Content="非项目组成员" HorizontalAlignment="Left" Margin="570,54,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtUser" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="464,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="101"  KeyDown="txtUser_KeyDown" PreviewMouseLeftButtonDown="txtUser_PreviewMouseLeftButtonDown"/>
+                <Label Content="员工工号" HorizontalAlignment="Left" Margin="403,49,0,0" VerticalAlignment="Top"/>
+                <Image x:Name="imgDel1" HorizontalAlignment="Left" Height="21" Margin="364,19,0,0" VerticalAlignment="Top" Width="21" Source="/QTCT_3;component/image/Close_32x32.png" MouseLeftButtonDown="imgDel1_MouseLeftButtonDown"/>
+                <Image x:Name="imgDel2" HorizontalAlignment="Left" Height="21" Margin="544,50,0,0" VerticalAlignment="Top" Width="21" Source="/QTCT_3;component/image/Close_32x32.png" MouseLeftButtonDown="imgDel2_MouseLeftButtonDown"/>
+            </Grid>
+        </Border>
+        <Border Grid.Row="1">
+            <DataGrid  Name="dgExpense" Margin="1,1,1,1" VerticalScrollBarVisibility="Auto" AutoGenerateColumns="False"
+                          HorizontalScrollBarVisibility="Auto"  ItemsSource="{Binding}"
+                          SelectionMode="Single" SelectionUnit="FullRow"  
+                          IsReadOnly="True" CanUserSortColumns="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="col1" Header="报销类型"  Binding="{Binding EXPENS}" Width="120"/>
+                    <DataGridTextColumn x:Name="col2" Header="填报日期"  Binding="{Binding CREATEDATE, StringFormat='yyyy/MM/dd' }" Width="150"/>
+                    <DataGridTextColumn x:Name="col3" Header="报销金额"  Binding="{Binding MONEY}" Width="150"/>
+                    <DataGridTextColumn x:Name="col4" Header="项目工程"  Binding="{Binding OBJECTNAME}" Width="90"/>
+                    <DataGridTextColumn x:Name="col6" Header="状态"  Binding="{Binding STATUS}" Width="150"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+    </Grid>
+</UserControl>

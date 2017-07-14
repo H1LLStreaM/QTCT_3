@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="QTCT_3.src.uc_bill"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="26" d:DesignWidth="300">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\..\..\ControlStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="270"/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="txt" Width="300" IsReadOnly="True"/>
+        <Image x:Name="img" Grid.Column="1" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="30" Source="/QTEXPENSE;component/image/Close_32x32.png" MouseLeftButtonUp="img_MouseLeftButtonUp"/>
+
+    </Grid>
+</UserControl>

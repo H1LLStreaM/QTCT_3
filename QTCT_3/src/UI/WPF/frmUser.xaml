@@ -1,0 +1,47 @@
+﻿<Window x:Class="QTCT_3.src.UI.WPF.frmUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="人员管理" Height="500" Width="600" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\..\..\ControlStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="230"/>
+            <ColumnDefinition Width="173*"/>
+        </Grid.ColumnDefinitions>
+        <Border BorderThickness="2" >
+            <DataGrid  Name="dgUser" Margin="2,2,2,2" VerticalScrollBarVisibility="Auto" AutoGenerateColumns="False"
+                          HorizontalScrollBarVisibility="Auto"  ItemsSource="{Binding}"
+                          SelectionMode="Single" SelectionUnit="FullRow"  
+                          IsReadOnly="True" CanUserSortColumns="True" MouseDoubleClick="dgUser_MouseDoubleClick"  >
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="User_Name" Header="姓名"  Binding="{Binding USER_NAME}" Width="100"/>
+                    <DataGridTextColumn x:Name="User_Code" Header="工号"  Binding="{Binding USER_CODE}" Width="100"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </Border>
+        <Border  BorderThickness="2" Grid.Column="1">
+            <Grid Margin="-2,-2,6.333,5.667">
+                <Button x:Name="btnNew" Content="新 建" HorizontalAlignment="Left" Margin="32,19,0,0" VerticalAlignment="Top" Width="58" Click="btnNew_Click"/>
+                <Button x:Name="btnSave" Content="更 新" HorizontalAlignment="Left" Margin="108,19,0,0" VerticalAlignment="Top" Width="58" Click="btnSave_Click"/>
+                <Button x:Name="btnDel" Content="删 除" HorizontalAlignment="Left" Margin="184,19,0,0" VerticalAlignment="Top" Width="58" Click="btnDel_Click"/>
+                <Label Content="姓名:" HorizontalAlignment="Left" Margin="32,75,0,0" VerticalAlignment="Top"/>
+                <Label Content="工号:" HorizontalAlignment="Left" Margin="32,111,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.025,0"/>
+                <TextBox x:Name="txtName" HorizontalAlignment="Left" Height="23" Margin="74,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="txtCode" HorizontalAlignment="Left" Height="23" Margin="74,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" VerticalContentAlignment="Center"/>
+                <ComboBox x:Name="cmbUserRole" HorizontalAlignment="Left" Margin="74,152,0,0" VerticalAlignment="Top" Width="134"/>
+                <Label Content="角色" HorizontalAlignment="Left" Margin="35,151,0,0" VerticalAlignment="Top"/>
+                <Label Content="部门" HorizontalAlignment="Left" Margin="35,193,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtDept" HorizontalAlignment="Left" Height="23" Margin="74,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" RenderTransformOrigin="0.834,0.441"/>
+                <Button x:Name="btnReset" Content="重置密码" HorizontalAlignment="Left" Margin="260,19,0,0" VerticalAlignment="Top" Width="75" Click="btnReset_Click"/>
+
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

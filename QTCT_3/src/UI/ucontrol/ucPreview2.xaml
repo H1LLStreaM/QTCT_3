@@ -1,0 +1,131 @@
+﻿<UserControl x:Class="QTCT_3.src.UI.ucontrol.ucPreview2"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Height="310" Width="1000" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\..\..\ControlStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <TabControl>
+            <TabItem Header="工程概况" Background="#FFA0D4F1">
+                <Grid Background="#FFEDF5F5" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="38"/>
+                        <RowDefinition Height="38"/>
+                        <RowDefinition Height="38"/>
+                        <RowDefinition Height="38"/>
+                        <RowDefinition Height="38"/>
+                        <RowDefinition Height="38"/>
+                        <RowDefinition Height="38"/>
+                        <RowDefinition Height="38"/>
+                        <RowDefinition Height="25*"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="工程名称:" HorizontalAlignment="Left" Margin="9,5,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="labProjName" HorizontalAlignment="Left" Margin="85,5,0,0" VerticalAlignment="Top" Width="290" Height="28"/>
+                    <Label Content="客户名称:" HorizontalAlignment="Left" Margin="9,6,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+                    <Label x:Name="labCustomer" HorizontalAlignment="Left" Margin="85,6,0,0" Grid.Row="1" VerticalAlignment="Top" Height="28" Width="290"/>
+                    <Label Content="项目类型:" HorizontalAlignment="Left" Margin="10,5,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+                    <Label x:Name="labProjType" HorizontalAlignment="Left" Margin="85,5,0,0" Grid.Row="2" VerticalAlignment="Top" Height="28" Width="290"/>
+                    <Label Content="合同金额:" HorizontalAlignment="Left" Margin="10,6,0,0" Grid.Row="3" VerticalAlignment="Top"/>
+                    <Label x:Name="labMoney" HorizontalAlignment="Left" Margin="85,6,0,0" Grid.Row="3" VerticalAlignment="Top" Width="290" Height="28"/>
+                    <Label Content="负责人:" HorizontalAlignment="Left" Margin="24,5,0,0" Grid.Row="4" VerticalAlignment="Top"/>
+                    <Label Content="项目组员:" HorizontalAlignment="Left" Margin="10,6,0,0" Grid.Row="5" VerticalAlignment="Top"/>
+                    <Label Content="工    期:" HorizontalAlignment="Left" Margin="20,5,0,0" Grid.Row="6" VerticalAlignment="Top"/>
+                    <Label x:Name="labProjDate" HorizontalAlignment="Left" Margin="85,5,0,0" Grid.Row="6" VerticalAlignment="Top" Width="290" Height="28"/>
+                    <Label x:Name="labLeader" HorizontalAlignment="Left" Margin="85,5,0,0" Grid.Row="4" VerticalAlignment="Top" Width="290" Height="28"/>
+                    <Label x:Name="labJS" HorizontalAlignment="Left" Margin="24,5,0,0" Grid.Row="7" VerticalAlignment="Top" Visibility="Visible" Height="28" Width="177" Foreground="{x:Null}"/>
+                    <Label x:Name="labMember" HorizontalAlignment="Left" Margin="85,6,0,0" Grid.Row="5" VerticalAlignment="Top" Width="290" Height="28"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="报销明细" Background="#FFA0D4F1">
+                <DataGrid  Name="dgExpense" Margin="1,1,1,1" VerticalScrollBarVisibility="Auto" AutoGenerateColumns="False"
+                          HorizontalScrollBarVisibility="Auto"  ItemsSource="{Binding}"
+                          SelectionMode="Single" SelectionUnit="FullRow"  
+                          IsReadOnly="True" CanUserSortColumns="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn x:Name="col1" Header="报销类型"  Binding="{Binding EXPENS}" Width="90"/>
+                        <DataGridTextColumn x:Name="col2" Header="填报日期"  Binding="{Binding CREATEDATE, StringFormat='yyyy/MM/dd' }" Width="110"/>
+                        <DataGridTextColumn x:Name="col3" Header="填报金额"  Binding="{Binding MONEY}" Width="80"/>
+                        <DataGridTextColumn x:Name="col4" Header="工号"  Binding="{Binding OPNAME}" Width="100"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+            <TabItem Header="开票明细" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="67.3333333333333" Background="#FFA0D4F1">
+                <Grid>
+                    <DataGrid  Name="dgBill" Margin="1,1,1,1" VerticalScrollBarVisibility="Auto" AutoGenerateColumns="False"
+                          HorizontalScrollBarVisibility="Auto"  ItemsSource="{Binding}"
+                          SelectionMode="Single" SelectionUnit="FullRow"  
+                          IsReadOnly="True" CanUserSortColumns="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="col5" Header="发票号"  Binding="{Binding BILLNUMBER}" Width="160"/>
+                            <DataGridTextColumn x:Name="col6" Header="日期"  Binding="{Binding CREATEDATE, StringFormat='yyyy/MM/dd' }" Width="110"/>
+                            <DataGridTextColumn x:Name="col7" Header="金额"  Binding="{Binding MONEY}" Width="100"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="利润明细"  Background="#FFA0D4F1">
+                <Grid Background="#FFEDF5F5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5*"/>
+                        <RowDefinition Height="73*"/>
+                        <RowDefinition Height="198*"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="合同总价:" HorizontalAlignment="Left" Margin="10,8.333,0,34" Grid.Row="1" Width="80" RenderTransformOrigin="0.529,-0.307"/>
+                    <Label x:Name="labHTZJ" HorizontalAlignment="Left" Margin="86,9.333,0,39" Grid.Row="1" Width="121" HorizontalContentAlignment="Right"/>
+                    <Label Content="折扣:" HorizontalAlignment="Left" Margin="221,9.333,0,0" Grid.Row="1" VerticalAlignment="Top" Height="25" Width="37"/>
+                    <Label Content="折后含税合同价:" HorizontalAlignment="Left" Margin="1,39.333,0,0" Grid.Row="1" VerticalAlignment="Top" Height="25" Width="119"/>
+                    <TextBox HorizontalAlignment="Left" IsReadOnly="True" Height="23" Margin="263,11.333,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="74"/>
+                    <Label x:Name="labZHJ" HorizontalAlignment="Left" Margin="121,39.333,0,0" Grid.Row="1" VerticalAlignment="Top" Width="137" HorizontalContentAlignment="Right" Height="25"/>
+                    <Label Content="报销费用合计:" HorizontalAlignment="Left" Margin="20,12,0,0" Grid.Row="2" VerticalAlignment="Top" Height="28" Width="97"/>
+                    <Label x:Name="labExpense" HorizontalAlignment="Left" Margin="123,12,0,0" Grid.Row="2" VerticalAlignment="Top" Width="122" HorizontalContentAlignment="Right" Height="25"/>
+                    <Label Content="项目毛利润:" HorizontalAlignment="Left" Margin="34,53,0,0" Grid.Row="2" VerticalAlignment="Top" RenderTransformOrigin="0.565,-0.053" Height="28" Width="83"/>
+                    <Label x:Name="labMoney3" HorizontalAlignment="Left" Margin="123,53,0,0" Grid.Row="2" VerticalAlignment="Top" Width="122" Height="25" HorizontalContentAlignment="Right"/>
+                    <Label Content="毛利率:" HorizontalAlignment="Left" Margin="62,90,0,0" Grid.Row="2" VerticalAlignment="Top" Height="28" Width="55"/>
+                    <Label x:Name="labMLV" HorizontalAlignment="Left" Margin="123,90,0,0" Grid.Row="2" VerticalAlignment="Top" Width="122" HorizontalContentAlignment="Right" Height="25"/>
+                    <Label Content="项目净利润:" HorizontalAlignment="Left" Margin="287,9,0,0" Grid.Row="2" VerticalAlignment="Top" RenderTransformOrigin="0.35,-0.316" Height="28" Width="84"/>
+                    <Label x:Name="labJLR" HorizontalAlignment="Left" Margin="385,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120" Height="25" HorizontalContentAlignment="Right"/>
+                    <Label Content="提成比率:" HorizontalAlignment="Left" Margin="299,48,0,0" Grid.Row="2" VerticalAlignment="Top" Height="28" Width="69"/>
+                    <Label x:Name="labRatio" HorizontalAlignment="Left" Margin="385,50,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120" Height="25" HorizontalContentAlignment="Right"/>
+                    <Label Content="提成金额:" HorizontalAlignment="Left" Margin="299,92,0,0" Grid.Row="2" VerticalAlignment="Top" Height="28" Width="69"/>
+                    <Label x:Name="labTCJE" HorizontalAlignment="Left" Margin="385,93,0,0" Grid.Row="2" VerticalAlignment="Top" Width="119" HorizontalContentAlignment="Right" Height="25"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="提成金额" Background="#FFA0D4F1" >
+                <Grid Background="#FFEDF5F5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="28*"/>
+                        <ColumnDefinition Width="71*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="33*"/>
+                        <RowDefinition Height="59*"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Content="总提成金额:" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="28" Width="83"/>
+                    <Label x:Name="labztcje" HorizontalAlignment="Left" Margin="98,0,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.088,0.595" Width="165" HorizontalContentAlignment="Right" Height="28"/>
+                    <Label Content="分配比例:" HorizontalAlignment="Left" Margin="9,30,0,0" VerticalAlignment="Top" Height="28" Width="74"/>
+                    <Label x:Name="labratio1" Content="60%" HorizontalAlignment="Left" Margin="99,30,0,41.667" RenderTransformOrigin="0.206,0.548" Background="{x:Null}" Width="59"/>
+                    <Label x:Name="labratio2" Content="40%" HorizontalAlignment="Left" Margin="221,30,0,0" VerticalAlignment="Top" Height="28" Width="62" Grid.ColumnSpan="2"/>
+                    <Label Content="分配金额:" HorizontalAlignment="Left" Margin="9,58,0,0" VerticalAlignment="Top" Height="28" Width="69"/>
+                    <Label x:Name="labfpje1" HorizontalAlignment="Left" Margin="99,58,0,0" VerticalAlignment="Top" Height="28" Width="72"/>
+                    <Label x:Name="labfpje2" HorizontalAlignment="Left" Margin="221,58,0,0" VerticalAlignment="Top" Height="28" Width="73" Grid.ColumnSpan="2"/>
+                    <Border  Grid.Row="1" >
+                        <ScrollViewer VerticalScrollBarVisibility="Visible">
+                            <StackPanel x:Name="panel"  CanVerticallyScroll="True"/>
+                        </ScrollViewer>
+                    </Border>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</UserControl>

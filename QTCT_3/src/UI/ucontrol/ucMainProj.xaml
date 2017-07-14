@@ -1,0 +1,103 @@
+﻿<UserControl x:Class="QTCT_3.src.UI.ucontrol.ucMainProj"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+             xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+             xmlns:local="clr-namespace:cis.cure;assembly=cis.cure.pub" 
+             xmlns:localcommon="clr-namespace:cis.cure.common;assembly=cis.cure.pub"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="1000">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\..\..\ControlStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="52*"/>
+        </Grid.RowDefinitions>
+        <Border>
+            <Grid Background="#FFEDF5F5">
+                <Label Content="项目名称" HorizontalAlignment="Left" Margin="40,9,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtObjName" HorizontalAlignment="Left" Height="23" Margin="103,9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="326" VerticalContentAlignment="Center" />
+                <Label Content="项目类型" HorizontalAlignment="Left" Margin="453,10,0,0" VerticalAlignment="Top"/>
+                <ComboBox x:Name="cmbObjType" HorizontalAlignment="Left" Margin="516,10,0,0" VerticalAlignment="Top" Width="168"/>
+                <Button x:Name="brnSearch" Content="查  询" HorizontalAlignment="Left" Margin="723,9,0,0" VerticalAlignment="Top" Width="55" Click="brnSearch_Click" Height="60"/>
+                <Label Content="工      期" HorizontalAlignment="Left" Margin="40,44,0,0" VerticalAlignment="Top"/>
+                <dxe:DateEdit Name="dtpBeginDate" Margin="103,44,0,14" FontSize="14" MaskAllowNullInput="False" Mask="yyyy-MM-dd" MaskUseAsDisplayFormat="False" AllowDefaultButton="True" AllowNullInput="False" DisplayFormatString="yyyy-MM-dd" ShowClearButton="False" ShowEditorButtons="True" ShowNullText="False" ShowNullTextForEmptyValue="False" HorizontalAlignment="Left" Width="115"/>
+                <dxe:DateEdit Name="dtpEndDate"   Margin="274,45,0,14" FontSize="14" MaskAllowNullInput="False" Mask="yyyy-MM-dd" MaskUseAsDisplayFormat="False" AllowDefaultButton="True" AllowNullInput="False" DisplayFormatString="yyyy-MM-dd" ShowClearButton="False" ShowEditorButtons="True" ShowNullText="False" ShowNullTextForEmptyValue="False" HorizontalAlignment="Left" Width="115"/>
+                <Label Content="-至-" HorizontalAlignment="Left" Margin="229,47,0,0" VerticalAlignment="Top" Width="33"/>
+                <CheckBox x:Name="chk" Width="70" Content="启用" HorizontalAlignment="Left" Margin="379,47,557,15" Checked="chk_Checked" VerticalContentAlignment="Center" VerticalAlignment="Center" Visibility="Hidden"/>
+                <Label Content="负责人" HorizontalAlignment="Left" Margin="465,47,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+                <TextBox x:Name="txtLeader"  HorizontalAlignment="Left" Height="23" Margin="516,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" VerticalContentAlignment="Center"  PreviewMouseLeftButtonDown="txtLeader_PreviewMouseLeftButtonDown" KeyUp="txtLeader_KeyUp" Visibility="Hidden"/>
+                <Image x:Name="imgClear2" HorizontalAlignment="Left" Height="22" Margin="661,47,0,0" VerticalAlignment="Top" Width="22" Source="/QTEXPENSE;component/image/Close_32x32.png" MouseLeftButtonDown="imgClear2_MouseLeftButtonDown" Visibility="Hidden"/>
+                <Button x:Name="brnPrint" Content="打  印" HorizontalAlignment="Left" Margin="953,10,-10,0" VerticalAlignment="Top" Width="55" Click="brnPrint_Click" Height="60"/>
+                <Button x:Name="brnModify" Content="编  辑" HorizontalAlignment="Left" Margin="800,9,0,0" VerticalAlignment="Top" Width="55" Click="brnModify_Click" Height="60"/>
+                <Button x:Name="brnDel" Content="删  除" HorizontalAlignment="Left" Margin="877,9,0,0" VerticalAlignment="Top" Width="55" Click="brnDel_Click" Height="60"/>
+            </Grid>
+        </Border>
+        <Border  Grid.Row="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="279*"/>
+                    <RowDefinition Height="3"/>
+                    <RowDefinition Height="310"/>
+                </Grid.RowDefinitions>
+                <GridSplitter ShowsPreview="False" Grid.Row="1" HorizontalAlignment="Stretch" Background="#FF5967F5">
+                    <GridSplitter.PreviewStyle>
+                        <Style TargetType="Control">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Control">
+                                        <Rectangle Stroke="Navy" StrokeDashArray="2" StrokeThickness="1" Fill="YellowGreen"/>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </GridSplitter.PreviewStyle>
+                </GridSplitter>
+                <DataGrid  Name="dgObject"  VerticalScrollBarVisibility="Auto" AutoGenerateColumns="False"
+                          HorizontalScrollBarVisibility="Auto"  ItemsSource="{Binding}"
+                          SelectionMode="Single" SelectionUnit="FullRow"  
+                          IsReadOnly="True" CanUserSortColumns="True" MouseDoubleClick="dgObject_MouseDoubleClick" MouseLeftButtonUp="dgObject_MouseLeftButtonUp" LoadingRow="dgObject_LoadingRow"  >
+                    <DataGrid.ContextMenu>
+                        <ContextMenu Name="contextMenuLogs">
+                            <MenuItem Name="menuEdit2" Header="项目比例分配" Click="menuEdit2_Click"/>
+                            <MenuItem Name="menuEdit" Header="组员提成比例分配" Click="menuEdit_Click"/>
+                            <MenuItem Name="menuDel" Header="删除" Click="menuDel_Click"/>
+                        </ContextMenu>
+                    </DataGrid.ContextMenu>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn x:Name="co9" Header="No"  Binding="{Binding Index}" Width="30"/>
+                        <DataGridTextColumn x:Name="col0" Header=""  Binding="{Binding BILLSTATUS}" Width="60"/>
+                        <DataGridTextColumn x:Name="col4" Header="工程名称"  Binding="{Binding OBJECTNAME}" Width="200"/>
+                        <DataGridTextColumn x:Name="col2" Header="客户名称"  Binding="{Binding COMPANYNAME}" Width="200"/>
+                        <DataGridTextColumn x:Name="col3" Header="负责人"  Binding="{Binding TEAMLEDERNAME}" Width="90"/>
+                        <DataGridTextColumn x:Name="col5" Header="开始工期"  Binding="{Binding BEGINDATE, StringFormat='yyyy/MM/dd' }" Width="130"/>
+                        <DataGridTextColumn x:Name="col6" Header="结束工期"  Binding="{Binding ENDDATE, StringFormat='yyyy/MM/dd'}" Width="130"/>
+                        <DataGridTextColumn x:Name="col7" Header="销售"  Binding="{Binding CREATEUSER}" Width="90"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <DockPanel x:Name="panel" Grid.Row="2" />
+            </Grid>
+        </Border>
+        <Border BorderBrush="#FFA0D4F1" BorderThickness="2" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Width="0" HorizontalAlignment="Right" VerticalAlignment="Top" x:Name="spBorder">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="2"/>
+            </Border.Effect>
+            <StackPanel Name="pnContentOther" Orientation="Vertical" >
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalAlignment="Right" Height="408" VerticalAlignment="Top">
+                    <DockPanel Width="399" Background="#FFA0D4F1" x:Name="ExpenseListPanel">
+
+                    </DockPanel>
+                </ScrollViewer>
+            </StackPanel>
+        </Border>
+
+    </Grid>
+</UserControl>
