@@ -265,8 +265,6 @@ namespace QTCT_3.src.UI.ucontrol
                 this.imgClear.IsEnabled = false;
                 this.txtProj.Text = string.Empty;
                 this.txtProj.Tag = null;
-                //this.col13.Visibility = System.Windows.Visibility.Hidden;
-                //this.col14.Visibility = System.Windows.Visibility.Hidden;
                 this.dgExpense.ItemsSource = null;
             }
         }
@@ -277,8 +275,6 @@ namespace QTCT_3.src.UI.ucontrol
             {
                 this.txtProj.IsEnabled = true;
                 this.imgClear.IsEnabled = true;
-                //this.col13.Visibility = System.Windows.Visibility.Visible;
-                //this.col14.Visibility = System.Windows.Visibility.Visible;
                 this.dgExpense.ItemsSource = null;
             }
         }
@@ -628,7 +624,6 @@ namespace QTCT_3.src.UI.ucontrol
                             }
                         }
                         this.labFoot.Content = foot;
-
                         this.labTotal.Content = "共:" + ls.Count + "张   合计:" + totalmoney.ToString() + "元";
                     }
                 }

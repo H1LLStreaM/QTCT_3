@@ -34,9 +34,6 @@ namespace QTCT_3.src.UI.WPF
             mProj = proj;
             this.txtProj.Tag = mProj;
             this.txtProj.Text = mProj.OBJECTNAME;
-            //this.Image.Visibility = System.Windows.Visibility.Hidden;
-            //this.txtProj.PreviewMouseLeftButtonDown -= txtProj_PreviewMouseLeftButtonDown;
-            //this.txtProj.KeyDown -= txtProj_KeyDown;
             BindProjTeam(mProj);
         }
 
