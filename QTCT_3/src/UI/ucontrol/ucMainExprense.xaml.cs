@@ -163,7 +163,7 @@ namespace QTCT_3.src.UI.ucontrol
 
             //this.labTotal.Content = "共:" + ls.Count + "张   合计:" + totalmoney.ToString() + "元";
             #endregion
-        } 
+        }
 
         Dictionary<TB_EXPENSE_SUMMERY, List<TB_EXPENSE>> dic = new Dictionary<TB_EXPENSE_SUMMERY, List<TB_EXPENSE>>();
         private void summeryExpenseDteail(List<TB_EXPENSE> detail)
