@@ -15,7 +15,7 @@ using System.Linq;
 using System.Collections;
 
 namespace QTCT_3.src.UI.ucontrol
-{
+{ 
     /// <summary>
     /// 个人报销信息查询
     /// </summary>
