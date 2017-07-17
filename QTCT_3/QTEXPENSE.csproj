@@ -270,6 +270,7 @@
     </ApplicationDefinition>
     <Compile Include="Comments\Comment.cs" />
     <Compile Include="Comments\profileporcess.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="src\UI\ucontrol\frmWorkAttendanceMonth .xaml.cs">
       <DependentUpon>frmWorkAttendanceMonth .xaml</DependentUpon>
     </Compile>

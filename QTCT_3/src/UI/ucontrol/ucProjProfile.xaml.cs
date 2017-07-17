@@ -148,8 +148,7 @@ namespace QTCT_3.src.UI.ucontrol
                 {
                     MessageHelper.ShowMessage("该项目未结算");
                     return;
-                }
-            
+                }            
             }
         }
     }
