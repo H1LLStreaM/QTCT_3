@@ -331,6 +331,9 @@
     <Compile Include="src\UI\WPF\frmExpense.xaml.cs">
       <DependentUpon>frmExpense.xaml</DependentUpon>
     </Compile>
+    <Compile Include="src\UI\WPF\frmExpenseAler.xaml.cs">
+      <DependentUpon>frmExpenseAler.xaml</DependentUpon>
+    </Compile>
     <Compile Include="src\UI\WPF\frmMain.xaml.cs">
       <DependentUpon>frmMain.xaml</DependentUpon>
     </Compile>
@@ -460,6 +463,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="src\UI\WPF\frmExpense.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\UI\WPF\frmExpenseAler.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

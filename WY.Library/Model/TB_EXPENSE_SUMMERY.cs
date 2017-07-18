@@ -12,6 +12,7 @@ namespace WY.Library.Model
         public string year { get; set; }
         public string month { get; set; }
         public decimal money { get; set; }
-   
+        public int count { get; set; }
+        public int id { get; set; } //项目或员工ID
     }
 }

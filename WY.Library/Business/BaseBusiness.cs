@@ -1,15 +1,9 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
-
-using WY.Common.Utility;
-using WY.Common.Message;
-using NHibernate.Expression;
-using WY.Common.Data;
-using System.Data.Common;
 using System.Data;
-using WY.Common;
-
+using System.Data.Common;
+using WY.Common.Data;
+using WY.Common.Message;
+using WY.Common.Utility;
 
 namespace WY.Library.Business
 {
@@ -90,7 +84,7 @@ namespace WY.Library.Business
                 try
                 {
                     db.TrnStart();
-                    string sql = "SELECT MAX(GROUPNO) FROM TB_EXPENSE WHERE OPUID="+opId;
+                    string sql = "SELECT MAX(GROUPNO) FROM TB_EXPENSE WHERE OPUID=" + opId;
                     DataSet ds = db.GetDataSet(sql);
                     if (ds != null && ds.Tables != null && ds.Tables.Count > 0)
                     {

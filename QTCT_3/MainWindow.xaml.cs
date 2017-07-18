@@ -1,18 +1,7 @@
 ﻿using NHibernate.Expression;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WY.Common;
 using WY.Common.Message;
 using WY.Common.Utility;
@@ -27,8 +16,9 @@ namespace QTCT_3
     public partial class MainWindow : Window
     {
         private string ServerIP;
+
         public MainWindow()
-        {           
+        {
             InitializeComponent();
             //获取ini信息
             getIniInfo();
@@ -38,7 +28,7 @@ namespace QTCT_3
 
         private void getIniInfo()
         {
-            this.txtIPServer.Text = ConfigManager.GetStringVal(ConfigManager.enmAppKey.MYSQL,"SERVER","");
+            this.txtIPServer.Text = ConfigManager.GetStringVal(ConfigManager.enmAppKey.MYSQL, "SERVER", "");
             ServerIP = this.txtIPServer.Text;
             this.txtLogName.Text = ConfigManager.GetStringVal(ConfigManager.enmAppKey.LOGNAME, "LOGNAME", "");
         }
@@ -55,7 +45,7 @@ namespace QTCT_3
             {
                 string logName = this.txtLogName.Text.Trim();  //用户工号
                 string pwd = DES.Encode(this.pwd.Password, Global.DB_PWDKEY);  //Utils.MD5(txtPwd.Text);
-
+                string dcodePwd = DES.Decode("G2ZaEl9zO9xeS+77fmGKow==", Global.DB_PWDKEY);
                 TB_User user = TB_UserDao.FindFirst(new EqExpression("USER_CODE", logName), new EqExpression("PASSWORD", pwd), new EqExpression("STATUS", 1));
                 if (user != null)
                 {
@@ -66,7 +56,7 @@ namespace QTCT_3
                     Global.g_password = user.PASSWORD;  //已加密
                     Global.g_dept = user.DEPT;
                     //获取默认提成比例
-                    PTS_OBJECT_TYPE_SRC[] arr = PTS_OBJECT_TYPE_SRCDAO.FindAll(new EqExpression("STATUS",1));
+                    PTS_OBJECT_TYPE_SRC[] arr = PTS_OBJECT_TYPE_SRCDAO.FindAll(new EqExpression("STATUS", 1));
                     if (arr.Length > 0)
                     {
                         Global.g_ratio1 = arr[0].RATIO1;
@@ -90,7 +80,6 @@ namespace QTCT_3
                 MessageHelper.ShowMessage(ex.Message);
             }
         }
-
 
         //private void loadLogName()
         //{

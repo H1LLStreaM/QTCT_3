@@ -187,6 +187,51 @@ namespace QTCT_3.Comments
             return list;
         }
 
+        /// <summary>
+        /// 报销提醒查询
+        /// </summary>
+        /// <param name="searchType">报销类型 0：个人  1：项目</param>
+        /// <param name="objectId">项目ID 为个人报销项目值为0</param>
+        /// <param name="expenseType2">报销类型(餐费，旅行费等)</param>
+        /// <param name="start">查询开始时间</param>
+        /// <param name="end">查询结束时间</param>
+        /// <returns></returns>
+        public static List<TB_EXPENSE> QueryExpenseAlert(int searchType,  int year, int month)
+        {
+            List<TB_EXPENSE> list = new List<TB_EXPENSE>();
+            try
+            {
+                List<ICriterion> IClist = new List<ICriterion>();                
+                IClist.Add(new EqExpression("STATUS", 1));                
+                IClist.Add(new EqExpression("YEAR", year));
+                IClist.Add(new EqExpression("MONTH", month));
+                IClist.Add(new EqExpression("ISCOMPLETE", 1)); //只能看到已提交的报销
+                if (searchType > 0)
+                {
+                    IClist.Add(new NotExpression(new EqExpression("OBJECTID", 0)));
+                }
+                else
+                    IClist.Add(new EqExpression("OBJECTID", 0));
+                TB_EXPENSE[] arr = TB_EXPENSEDAO.FindAll(IClist.ToArray());
+                if (arr != null && arr.Length > 0)
+                {
+                    list = new List<TB_EXPENSE>(arr);
+                }
+                for (int i = 0; i < list.Count; i++)
+                {
+                    if (list[i].ISMEMBER == 1)
+                        list[i].memeberstatus = "◎";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageHelper.ShowMessage(ex.Message);
+            }
+            return list;
+        }
+
+
+
         public static string setProjIdentity(string identity)
         {
             string rtn = "";

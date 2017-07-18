@@ -30,20 +30,18 @@ namespace QTCT_3
             refreshControl();
             refreshMenu();
             autoAlert();
-            //DateTime sysDate = DateTime.Parse(new BaseBusiness().date());
-            //DateTime dbDate = DateTime.Parse("2017-05-30 00:00:00");
-            //if (sysDate > dbDate)
-            //{
-            //    MessageHelper.ShowMessage("Error! Exit!");
-            //    return;
-            //}
         }
         
         /// <summary>
         /// 项目到期提醒 完工日期后30天
         /// </summary>
         private void autoAlert()
-        { }
+        {
+            DateTime date = DateTime.Parse(new BaseBusiness().date());
+            frmExpenseAler frm = new frmExpenseAler();
+            frm.Title = date.Year.ToString() + "-" + date.AddMonths(-1).Month.ToString() + "报销提醒";
+            frm.ShowDialog();
+        }
 
         /// <summary>
         /// 根据用户权限显示初始界面(默认全部是报销填报界面)

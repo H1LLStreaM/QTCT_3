@@ -1,8 +1,5 @@
 ﻿using Castle.ActiveRecord;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace WY.Library.Model
 {
@@ -19,6 +16,7 @@ namespace WY.Library.Model
         }
 
         private int _Id;
+
         /// <summary>
         /// ID
         /// </summary>
@@ -30,6 +28,7 @@ namespace WY.Library.Model
         }
 
         private string _CONTRACTNO;
+
         /// <summary>
         /// 合同编号
         /// </summary>
@@ -41,6 +40,7 @@ namespace WY.Library.Model
         }
 
         private string _OBJECTNAME;
+
         /// <summary>
         /// 工程名称
         /// </summary>
@@ -52,6 +52,7 @@ namespace WY.Library.Model
         }
 
         private string _COMPANYNAME;
+
         /// <summary>
         /// 客户公司名称
         /// </summary>
@@ -63,6 +64,7 @@ namespace WY.Library.Model
         }
 
         private string _ADDRESS;
+
         /// <summary>
         /// 工程地址
         /// </summary>
@@ -74,6 +76,7 @@ namespace WY.Library.Model
         }
 
         private DateTime _BILLDATE;
+
         /// <summary>
         /// 开票时间
         /// </summary>
@@ -85,6 +88,7 @@ namespace WY.Library.Model
         }
 
         private string _BILLSTATUS;
+
         /// <summary>
         /// BILLSTATUS
         /// </summary>
@@ -96,6 +100,7 @@ namespace WY.Library.Model
         }
 
         private DateTime _BEGINDATE;
+
         /// <summary>
         /// BEGINDATE
         /// </summary>
@@ -107,6 +112,7 @@ namespace WY.Library.Model
         }
 
         private DateTime _ENDDATE;
+
         /// <summary>
         /// ENDDATE
         /// </summary>
@@ -118,6 +124,7 @@ namespace WY.Library.Model
         }
 
         private decimal _MONEY;
+
         /// <summary>
         /// MONEY
         /// </summary>
@@ -129,6 +136,7 @@ namespace WY.Library.Model
         }
 
         private int _OBJECTTYPE;
+
         /// <summary>
         /// OBJECTTYPE
         /// </summary>
@@ -140,6 +148,7 @@ namespace WY.Library.Model
         }
 
         private string _OBJECTTYPENAME;
+
         /// <summary>
         /// 工程类型名称
         /// </summary>
@@ -151,6 +160,7 @@ namespace WY.Library.Model
         }
 
         private string _OBJECTRATIO;
+
         /// <summary>
         /// 工程提成比率
         /// </summary>
@@ -162,6 +172,7 @@ namespace WY.Library.Model
         }
 
         private string _TEAMMEMBER;
+
         /// <summary>
         /// 项目成员ID组
         /// </summary>
@@ -173,6 +184,7 @@ namespace WY.Library.Model
         }
 
         private string _TEAMLEDER;
+
         /// <summary>
         /// 项目负责人ID
         /// </summary>
@@ -184,6 +196,7 @@ namespace WY.Library.Model
         }
 
         private string _TEAMLEDERNAME;
+
         /// <summary>
         /// 项目负责人名称
         /// </summary>
@@ -195,6 +208,7 @@ namespace WY.Library.Model
         }
 
         private string _MEMO;
+
         /// <summary>
         /// Table_Value
         /// </summary>
@@ -205,12 +219,12 @@ namespace WY.Library.Model
             set { this._MEMO = value; }
         }
 
-        
         private string _CREATEUSER;
+
         /// <summary>
         /// 销售人员
         /// </summary>
-        [Property()]        
+        [Property()]
         public string CREATEUSER
         {
             get { return _CREATEUSER; }
@@ -218,6 +232,7 @@ namespace WY.Library.Model
         }
 
         private int _Status = 1;
+
         /// <summary>
         /// 是否启用
         /// </summary>
@@ -229,6 +244,7 @@ namespace WY.Library.Model
         }
 
         private decimal _RATIO1;
+
         /// <summary>
         /// _RATIO1
         /// </summary>
@@ -240,6 +256,7 @@ namespace WY.Library.Model
         }
 
         private decimal _RATIO2;
+
         /// <summary>
         /// RATIO2
         /// </summary>
@@ -251,6 +268,7 @@ namespace WY.Library.Model
         }
 
         private decimal _ZHEKOU;
+
         /// <summary>
         /// ZHEKOU
         /// </summary>
