@@ -1,8 +1,6 @@
 ﻿using NHibernate.Expression;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using WY.Common.Message;
 using WY.Common.Utility;
 using WY.Library.Business;
@@ -24,16 +22,16 @@ namespace QTCT_3.Comments
         public projProfileClass getProfile(TB_PROJECT proj)
         {
             projProfileClass profile = new projProfileClass();
-            try 
+            try
             {
                 profile.projName = proj.OBJECTNAME;
                 profile.saler = proj.CREATEUSER;
                 profile.projDate = proj.BEGINDATE.ToShortDateString();
                 profile.contractNumber = proj.CONTRACTNO;
                 profile.hshtj = proj.MONEY;
-                profile.whshtj = Math.Round(proj.MONEY * decimal.Parse("0.94"),2);
+                profile.whshtj = Math.Round(proj.MONEY * decimal.Parse("0.94"), 2);
                 TB_BILL[] billarr = TB_BILLDAO.FindAll(new EqExpression("PROJECTID", proj.Id), new EqExpression("STATUS", 1));
-                if(billarr.Length>0)
+                if (billarr.Length > 0)
                     profile.bills = billarr[0].BILLNUMBER;
                 //报销
                 TB_EXPENSE[] arr = TB_EXPENSEDAO.FindAll(new EqExpression("STATUS", 1), new EqExpression("OBJECTID", proj.Id));
@@ -43,13 +41,13 @@ namespace QTCT_3.Comments
                     profile.expens = new List<TB_EXPENSE>();
                     profile.expens = ls;
                 }
-                if(arr.Length>0)
+                if (arr.Length > 0)
                     profile.xmmlr = xmmlrProcess(new List<TB_EXPENSE>(arr), profile.whshtj);
                 else
                     profile.xmmlr = profile.whshtj;
                 //毛利润
                 profile.mlv = 0;
-                if (profile.whshtj>0)
+                if (profile.whshtj > 0)
                     profile.mlv = Math.Round(profile.xmmlr / profile.whshtj * 100, 2);  //项目毛利润/未含税合同价(%)
                 //项目净利润
                 profile.xmjlr = Math.Round(profile.xmmlr * Utils.NvDecimal("0.8"), 2);
@@ -101,7 +99,8 @@ namespace QTCT_3.Comments
         }
 
         #region 计算个人提成金额
-        public List<TB_PERSONAL_PROFILE> personalProcess(projProfileClass ppc,int projId)
+
+        public List<TB_PERSONAL_PROFILE> personalProcess(projProfileClass ppc, int projId)
         {
             decimal money = ppc.xmgcstje; //总项目工程师提成金额
             List<TB_PERSONAL_PROFILE> rtn = new List<TB_PERSONAL_PROFILE>();
@@ -147,6 +146,6 @@ namespace QTCT_3.Comments
             return rtn;
         }
 
-        #endregion
+        #endregion 计算个人提成金额
     }
 }

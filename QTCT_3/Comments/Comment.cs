@@ -1,8 +1,6 @@
 ﻿using NHibernate.Expression;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using WY.Common.Message;
 using WY.Library.Dao;
 using WY.Library.Model;
@@ -27,7 +25,7 @@ namespace QTCT_3.Comments
             {
                 List<ICriterion> IClist = new List<ICriterion>();
                 IClist.Add(new EqExpression("STATUS", 1));
-                if (projID>0)
+                if (projID > 0)
                 {
                     IClist.Add(new LikeExpression("Id", projID));
                 }
@@ -37,16 +35,16 @@ namespace QTCT_3.Comments
                 }
                 if (!string.IsNullOrEmpty(projectType))
                 {
-                    IClist.Add(new LikeExpression("OBJECTTYPENAME", "%"+projectType+"%"));
+                    IClist.Add(new LikeExpression("OBJECTTYPENAME", "%" + projectType + "%"));
                 }
-                if (start != null && end!=null)
+                if (start != null && end != null)
                 {
-                    BetweenExpression betw1 = new BetweenExpression("BEGINDATE", start,end);//(new GeExpression("BEGINDATE", start), new LeExpression("ENDDATE", end));
+                    BetweenExpression betw1 = new BetweenExpression("BEGINDATE", start, end);//(new GeExpression("BEGINDATE", start), new LeExpression("ENDDATE", end));
                     //BetweenExpression betw2 = new BetweenExpression("ENDDATE", start, end);
                     IClist.Add(betw1);
                 }
                 TB_PROJECT[] arr = TB_PROJECTDAO.FindAll(IClist.ToArray());
-                if (arr!=null && arr.Length > 0)
+                if (arr != null && arr.Length > 0)
                 {
                     list = new List<TB_PROJECT>(arr);
                 }
@@ -57,7 +55,6 @@ namespace QTCT_3.Comments
             }
             return list;
         }
-
 
         /// <summary>
         /// 线路工程查询
@@ -115,13 +112,13 @@ namespace QTCT_3.Comments
         /// <param name="start">查询开始时间</param>
         /// <param name="end">查询结束时间</param>
         /// <returns></returns>
-        public static List<TB_EXPENSE> QueryExpense(Object obj,int expenseType, int objectId, int expenseType2, int year,int month)
+        public static List<TB_EXPENSE> QueryExpense(Object obj, int expenseType, int objectId, int expenseType2, int year, int month)
         {
             List<TB_EXPENSE> list = new List<TB_EXPENSE>();
             try
             {
                 List<ICriterion> IClist = new List<ICriterion>();
-                if (obj!=null)
+                if (obj != null)
                     IClist.Add(new EqExpression("OPNAME", (obj as TB_User).USER_CODE));
                 IClist.Add(new EqExpression("STATUS", 1));
                 IClist.Add(new EqExpression("OBJECTID", objectId));
@@ -133,7 +130,7 @@ namespace QTCT_3.Comments
                     IClist.Add(new EqExpression("EXPENSTYPE", expenseType2));
                 }
                 TB_EXPENSE[] arr = TB_EXPENSEDAO.FindAll(IClist.ToArray());
-                if (arr!=null && arr.Length > 0)
+                if (arr != null && arr.Length > 0)
                 {
                     list = new List<TB_EXPENSE>(arr);
                 }
@@ -150,7 +147,6 @@ namespace QTCT_3.Comments
             return list;
         }
 
-        
         /// <summary>
         /// 报销查询
         /// </summary>
@@ -160,16 +156,16 @@ namespace QTCT_3.Comments
         /// <param name="start">开始时间</param>
         /// <param name="end">结束时间</param>
         /// <returns></returns>
-        public static List<TB_EXPENSE> QueryExpense2(string usercode, int expenseType, int objectId,DateTime? start = null, DateTime? end = null)
+        public static List<TB_EXPENSE> QueryExpense2(string usercode, int expenseType, int objectId, DateTime? start = null, DateTime? end = null)
         {
             List<TB_EXPENSE> list = new List<TB_EXPENSE>();
             try
             {
                 List<ICriterion> IClist = new List<ICriterion>();
                 IClist.Add(new EqExpression("STATUS", 1));
-                if(!string.IsNullOrEmpty(usercode))
-                    IClist.Add(new EqExpression("OPNAME", usercode));               
-                if (objectId>0)
+                if (!string.IsNullOrEmpty(usercode))
+                    IClist.Add(new EqExpression("OPNAME", usercode));
+                if (objectId > 0)
                     IClist.Add(new EqExpression("OBJECTID", objectId));
                 if (expenseType > 0)
                     IClist.Add(new EqExpression("EXPENSTYPE", expenseType));
@@ -200,52 +196,66 @@ namespace QTCT_3.Comments
                 if (arr.Length > 0)
                 {
                     for (int i = 0; i < arr.Length; i++)
-                    { 
+                    {
                         string str = arr[i];
                         switch (str)
-                        { 
+                        {
                             case "yn":
                                 rtn += "院内,";
                                 break;
+
                             case "yw":
                                 rtn += "院外,";
                                 break;
+
                             case "wl":
                                 rtn += "网络,";
                                 break;
+
                             case "zx":
                                 rtn += "专线,";
                                 break;
+
                             case "wx":
                                 rtn += "卫星,";
                                 break;
+
                             case "wifi":
                                 rtn += "无线,";
                                 break;
+
                             case "3D":
                                 rtn += "3D,";
                                 break;
+
                             case "2D":
                                 rtn += "2D,";
                                 break;
+
                             case "xwj":
                                 rtn += "显微镜,";
                                 break;
+
                             case "qj":
                                 rtn += "腔镜,";
                                 break;
+
                             case "jrl":
                                 rtn += "介入类,";
                                 break;
+
                             case "kfl":
                                 rtn += "开放类,";
                                 break;
+
                             case "fhl":
                                 rtn += "复合类,";
                                 break;
+
                             case "qt":
                                 rtn += "其他,";
                                 break;
+
                             default:
                                 break;
                         }

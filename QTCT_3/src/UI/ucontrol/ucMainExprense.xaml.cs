@@ -2,6 +2,7 @@
 using QTCT_3.src.UI.WPF;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -11,11 +12,9 @@ using WY.Common.Message;
 using WY.Library.Dao;
 using WY.Library.Model;
 using WY.Library.ReportBusiness;
-using System.Linq;
-using System.Collections;
 
 namespace QTCT_3.src.UI.ucontrol
-{ 
+{
     /// <summary>
     /// 个人报销信息查询
     /// </summary>
@@ -67,7 +66,7 @@ namespace QTCT_3.src.UI.ucontrol
             //PTS_TABLE_SRC src = this.cmbType.SelectedItem as PTS_TABLE_SRC;  //报销类型
             //查询条件
             int expenxeType = 0;  //个人或项目
-            int expenxeType2 = 0;  //报销科目  
+            int expenxeType2 = 0;  //报销科目
             int objectID = 0;
             if (this.rdo2.IsChecked == true)  //项目报销
             {
@@ -164,8 +163,9 @@ namespace QTCT_3.src.UI.ucontrol
             //this.labTotal.Content = "共:" + ls.Count + "张   合计:" + totalmoney.ToString() + "元";
             #endregion
         }
-         
-        Dictionary<TB_EXPENSE_SUMMERY, List<TB_EXPENSE>> dic = new Dictionary<TB_EXPENSE_SUMMERY, List<TB_EXPENSE>>();
+
+        private Dictionary<TB_EXPENSE_SUMMERY, List<TB_EXPENSE>> dic = new Dictionary<TB_EXPENSE_SUMMERY, List<TB_EXPENSE>>();
+
         private void summeryExpenseDteail(List<TB_EXPENSE> detail)
         {
             dic = new Dictionary<TB_EXPENSE_SUMMERY, List<TB_EXPENSE>>();
@@ -244,12 +244,15 @@ namespace QTCT_3.src.UI.ucontrol
                 case 7:
                     rtn = ls;
                     break;
+
                 case 8:
                     rtn = ls;
                     break;
+
                 case 9:
                     rtn = ls;
-                    break;                
+                    break;
+
                 default:
                     rtn = ls.FindAll(a => a.OPUID == Global.g_userid);  //数据过滤
                     break;
@@ -281,7 +284,7 @@ namespace QTCT_3.src.UI.ucontrol
 
         private void txtProj_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
-            if(e.Key == System.Windows.Input.Key.Escape)
+            if (e.Key == System.Windows.Input.Key.Escape)
                 ClearProj();
         }
 
@@ -303,7 +306,7 @@ namespace QTCT_3.src.UI.ucontrol
                     {
                         this.txtProj.Tag = frm.mProj;
                         this.txtProj.Text = frm.mProj.OBJECTNAME;
-                        if (frm.mProj.CREATEUSER == Global.g_usercode || Global.g_userrole==8 || Global.g_userrole==9) //登陆者是否是项目的销售(创建者)/总经理/财务
+                        if (frm.mProj.CREATEUSER == Global.g_usercode || Global.g_userrole == 8 || Global.g_userrole == 9) //登陆者是否是项目的销售(创建者)/总经理/财务
                         {
                             this.txtUser.IsEnabled = true;
                             this.txtUser.Tag = null;
@@ -337,6 +340,7 @@ namespace QTCT_3.src.UI.ucontrol
         }
 
         #region 勿删！
+
         private void dgExpense_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             //暂时关闭双击编辑功能 （勿删！）
@@ -348,7 +352,8 @@ namespace QTCT_3.src.UI.ucontrol
             //    btnSearch_Click(null,null);
             //}
         }
-        #endregion 
+
+        #endregion
 
         /// <summary>
         /// 报销打印
@@ -360,11 +365,12 @@ namespace QTCT_3.src.UI.ucontrol
             if (dgExpense.ItemsSource != null)
             {
                 List<TB_EXPENSE> list = dgExpense.ItemsSource as List<TB_EXPENSE>;
-                new ExpensePrint(list, cmbYear.Text, cmbMonth.Text,labFoot.Content.ToString());
+                new ExpensePrint(list, cmbYear.Text, cmbMonth.Text, labFoot.Content.ToString());
             }
         }
 
         #region 人员文本框操作
+
         private void txtUser_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             try
@@ -406,7 +412,8 @@ namespace QTCT_3.src.UI.ucontrol
             this.txtUser.Tag = null;
             this.txtUser.Text = string.Empty;
         }
-        #endregion       
+
+        #endregion
 
         /// <summary>
         /// 报销驳回
@@ -449,7 +456,7 @@ namespace QTCT_3.src.UI.ucontrol
             e.Row.MouseRightButtonDown += Row_MouseRightButtonDown;
         }
 
-        void Row_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        private void Row_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             menuEdit.Visibility = System.Windows.Visibility.Collapsed;
             menuPass.Visibility = System.Windows.Visibility.Collapsed;
@@ -465,14 +472,14 @@ namespace QTCT_3.src.UI.ucontrol
                     //总经理
                     if (Global.g_userrole == 8 || Global.g_usercode == proj.CREATEUSER)
                     {
-                        menuEdit2.Visibility =  System.Windows.Visibility.Visible;
+                        menuEdit2.Visibility = System.Windows.Visibility.Visible;
                         menuPass2.Visibility = System.Windows.Visibility.Visible;
-                    }                   
+                    }
                     else if (Global.g_userrole == 9)
                     {
                         menuEdit.Visibility = System.Windows.Visibility.Visible;
                         menuPass.Visibility = System.Windows.Visibility.Visible;
-                    }                    
+                    }
                 }
                 else  //个人报销
                 {
@@ -480,7 +487,7 @@ namespace QTCT_3.src.UI.ucontrol
                     {
                         menuEdit.Visibility = System.Windows.Visibility.Visible;
                         menuPass.Visibility = System.Windows.Visibility.Visible;
-                    }           
+                    }
                 }
             }
         }
