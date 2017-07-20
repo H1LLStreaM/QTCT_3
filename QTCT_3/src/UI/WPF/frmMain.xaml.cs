@@ -1,5 +1,4 @@
-﻿using NHibernate.Expression;
-using QTCT_3.src.UI.ucontrol;
+﻿using QTCT_3.src.UI.ucontrol;
 using QTCT_3.src.UI.WPF;
 using System;
 using System.Data;
@@ -8,9 +7,7 @@ using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Media;
 using WY.Common;
-using WY.Common.Message;
 using WY.Library.Business;
-using WY.Library.Dao;
 
 namespace QTCT_3
 {
@@ -29,18 +26,17 @@ namespace QTCT_3
             this.barUser.Content = Global.g_usercode;
             refreshControl();
             refreshMenu();
-            autoAlert();
         }
-        
+
         /// <summary>
         /// 项目到期提醒 完工日期后30天
         /// </summary>
-        private void autoAlert()
+        public void autoAlert()
         {
             DateTime date = DateTime.Parse(new BaseBusiness().date());
-            frmExpenseAler frm = new frmExpenseAler();
+            frmExpenseAler frm = new frmExpenseAler(date.Year.ToString(), date.AddMonths(-1).Month.ToString());
             frm.Title = date.Year.ToString() + "-" + date.AddMonths(-1).Month.ToString() + "报销提醒";
-            frm.ShowDialog();
+            frm.Show();
         }
 
         /// <summary>
@@ -52,9 +48,8 @@ namespace QTCT_3
             ucNewExpense ucExpense = new ucNewExpense();
             ucExpense.Width = this.wpanel.Width;
             ucExpense.Height = this.wpanel.Height;
-            this.wpanel.Children.Add(ucExpense);            
+            this.wpanel.Children.Add(ucExpense);
         }
-
 
         /// <summary>
         /// 根据用户权限管理显示菜单
@@ -66,24 +61,32 @@ namespace QTCT_3
             menu_user.IsEnabled = false;
             menu_mange.IsEnabled = false;
             menu_profile_proj_search.IsEnabled = false;
+            menu_expense_alert_search.IsEnabled = false;
             switch (Global.g_userrole)
             {
                 case 7:  //管理员
                     break;
+
                 case 8:  //总经理
                     menu_profile_search.IsEnabled = true;
                     menu_add_project.IsEnabled = true;
                     menu_user.IsEnabled = true;
                     menu_mange.IsEnabled = true;
                     menu_profile_proj_search.IsEnabled = true;
+                    menu_expense_alert_search.IsEnabled = true;
                     break;
+
                 case 9: //财务
+                    menu_expense_alert_search.IsEnabled = true;
                     break;
+
                 case 10: //销售
                     menu_add_project.IsEnabled = true;
                     break;
+
                 case 11: //员工
                     break;
+
                 default:
                     break;
             }
@@ -108,8 +111,8 @@ namespace QTCT_3
             uc.Height = this.wpanel.Height;
             this.wpanel.Children.Add(uc);
         }
-        
-        void timer_Tick(object sender, System.EventArgs e)
+
+        private void timer_Tick(object sender, System.EventArgs e)
         {
             DateTime dateTime = DateTime.Now;
             this.barTimer.Content = dateTime.ToString("yyyy-MM-dd HH:mm:ss");
@@ -124,14 +127,13 @@ namespace QTCT_3
                 frm.ShowDialog();
             }
             catch (Exception ex)
-            { 
-            
+            {
             }
         }
 
         private void menu_Exit_Click(object sender, RoutedEventArgs e)
         {
-            if(System.Windows.Forms.MessageBox.Show("是否确认退出？","关闭",MessageBoxButtons.YesNo,MessageBoxIcon.Question)== System.Windows.Forms.DialogResult.Yes)
+            if (System.Windows.Forms.MessageBox.Show("是否确认退出？", "关闭", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
                 this.Close();
         }
 
@@ -236,8 +238,8 @@ namespace QTCT_3
             for (int i = 0; i < menu.Items.Count; i++)
             {
                 string name = ((System.Windows.Controls.HeaderedItemsControl)(menu.Items[i])).Header.ToString();
-                if (name == itemName)                
-                    ((System.Windows.Controls.HeaderedItemsControl)menu.Items[i]).Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF80C7F6"));                
+                if (name == itemName)
+                    ((System.Windows.Controls.HeaderedItemsControl)menu.Items[i]).Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF80C7F6"));
                 else
                     ((System.Windows.Controls.HeaderedItemsControl)menu.Items[i]).Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#00FFFFFF"));
             }
@@ -282,14 +284,12 @@ namespace QTCT_3
                 strExcel = "select * from [sheet1$]";
                 myCommand = new OleDbDataAdapter(strExcel, strConn);
                 ds = new DataSet();
-                myCommand.Fill(ds, "table1");    
-
+                myCommand.Fill(ds, "table1");
             }
         }
 
         private void menu_Work_Modify_Click(object sender, RoutedEventArgs e)
         {
-
         }
 
         /// <summary>
@@ -305,6 +305,11 @@ namespace QTCT_3
             uc.Width = this.wpanel.Width;
             uc.Height = this.wpanel.Height;
             this.wpanel.Children.Add(uc);
+        }
+
+        private void menu_expense_alert_search_Click(object sender, RoutedEventArgs e)
+        {
+            this.autoAlert();
         }
     }
 }

@@ -114,7 +114,7 @@
                            HorizontalScrollBarVisibility="Auto"  ItemsSource="{Binding}"
                           SelectionMode="Single" SelectionUnit="FullRow" IsReadOnly="True" CanUserSortColumns="False" MouseLeftButtonUp="dgSummery_MouseLeftButtonUp" Margin="0,0,0.4,13.4">
                     <DataGrid.Columns>
-                        <DataGridTextColumn x:Name="col20" Header="姓名"  Binding="{Binding opname}" Width="90" />
+                        <DataGridTextColumn x:Name="col20" Header="姓名/公司名称"  Binding="{Binding opname}" Width="180" />
                         <DataGridTextColumn x:Name="col21" Header="年度"  Binding="{Binding year}" Width="50" />
                         <DataGridTextColumn x:Name="col22" Header="月度"  Binding="{Binding month}" Width="50" />
                         <DataGridTextColumn x:Name="col23" Header="合计金额"  Binding="{Binding money}" Width="150" />
@@ -122,6 +122,5 @@
                 </DataGrid>
             </Grid>
         </Border>
-
     </Grid>
 </Window>

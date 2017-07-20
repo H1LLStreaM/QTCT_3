@@ -22,7 +22,7 @@ namespace QTCT_3.src.UI.WPF
         private string month;
         private Dictionary<TB_EXPENSE_SUMMERY, List<TB_EXPENSE>> dic;
 
-        public frmExpenseAler()
+        public frmExpenseAler(string _year, string _month)
         {
             InitializeComponent();
             this.dgExpense.ContextMenu = contextMenuLogs;
@@ -33,11 +33,15 @@ namespace QTCT_3.src.UI.WPF
             rdo1.Checked += rdo1_Checked;
             rdo2.Checked += rdo2_Checked;
             rdo1.IsChecked = true;
-            
+            this.year = _year;
+            this.month = _month;
+            this.cmbYear.Text = this.year;
+            this.cmbMonth.Text = this.month;
             if (Global.g_userrole == 8 || Global.g_userrole == 9)
                 this.btnPass.Visibility = System.Windows.Visibility.Visible;
             else
                 this.btnPass.Visibility = System.Windows.Visibility.Hidden;
+            bindExpenseData();
         }
 
         /// <summary>
@@ -57,13 +61,13 @@ namespace QTCT_3.src.UI.WPF
             int expenxeType = 0;  //个人或项目
             if (this.rdo2.IsChecked == true)  //项目报销
             {
-                expenxeType = 1;               
+                expenxeType = 1;
             }
             _ls = Comments.Comment.QueryExpenseAlert(expenxeType, int.Parse(cmbYear.Text), int.Parse(cmbMonth.Text));
             this.dgExpense.ItemsSource = null;
-            _ls = _ls.FindAll(a => a.LEADERRESPONSESTATUS == 0 ||  a.RESPONSESTATUS == 0);
-            summeryExpenseDteail(_ls);           
-        }        
+            _ls = _ls.FindAll(a => a.LEADERRESPONSESTATUS == 0 || a.RESPONSESTATUS == 0);
+            summeryExpenseDteail(_ls);
+        }
 
         private void summeryExpenseDteail(List<TB_EXPENSE> detail)
         {
@@ -191,7 +195,9 @@ namespace QTCT_3.src.UI.WPF
             //}
         }
 
-        #endregion       
+        #endregion 勿删！
+
+
 
         /// <summary>
         /// 报销驳回

@@ -11,39 +11,38 @@
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="22"/>
-            <RowDefinition Height="138*"/>
-            <RowDefinition Height="5*"/>
-
+            <RowDefinition Height="22" />
+            <RowDefinition Height="138*" />
+            <RowDefinition Height="5*" />
         </Grid.RowDefinitions>
-        <Menu x:Name="menu" FontSize="14" Grid.Row="0" >
+        <Menu x:Name="menu" FontSize="14" Grid.Row="0">
 
-            <MenuItem x:Name="menu_addexpense" Header="报销填报" Click="menu_newexpense_Click"/>
-            <MenuItem x:Name="menu_expense" Header="报销查询" Click="menu_expense_Click"/>            
-            <MenuItem x:Name="menu_add_project" Header="新增项目" Click="menu_add_project_Click"/>
-            <MenuItem x:Name="menu_newproject_search" Header="项目查询" Click="menu_newproject_search_Click"/>
-            <MenuItem x:Name="menu_profile_search" Header="业绩查询" Click="menu_profile_search_Click"/>
-            <MenuItem x:Name="menu_profile_proj_search" Header="项目提成查询" Click="menu_profile_proj_search_Click"/>
+            <MenuItem x:Name="menu_addexpense" Header="报销填报" Click="menu_newexpense_Click" />
+            <MenuItem x:Name="menu_expense" Header="报销查询" Click="menu_expense_Click" />
+            <MenuItem x:Name="menu_add_project" Header="新增项目" Click="menu_add_project_Click" />
+            <MenuItem x:Name="menu_newproject_search" Header="项目查询" Click="menu_newproject_search_Click" />
+            <MenuItem x:Name="menu_profile_search" Header="业绩查询" Click="menu_profile_search_Click" />
+            <MenuItem x:Name="menu_profile_proj_search" Header="项目提成查询" Click="menu_profile_proj_search_Click" />
+            <MenuItem x:Name="menu_expense_alert_search" Header="项目提成查询" Click="menu_expense_alert_search_Click" />
             <MenuItem Header="人员考勤" Visibility="Collapsed">
-                <MenuItem Header="考勤导入" x:Name="menu_WorkLoad" Click="menu_WorkLoad_Click"/>
-                <MenuItem Header="考勤信息查询" x:Name="menu_Work_Modify" Click="menu_Work_Modify_Click"/>
+                <MenuItem Header="考勤导入" x:Name="menu_WorkLoad" Click="menu_WorkLoad_Click" />
+                <MenuItem Header="考勤信息查询" x:Name="menu_Work_Modify" Click="menu_Work_Modify_Click" />
             </MenuItem>
             <MenuItem Header="系统设置" Background="#FFF6FAD8">
                 <MenuItem x:Name="menu_user" Header="人员管理" Click="menu_user_Click" ></MenuItem>
                 <MenuItem x:Name="menu_mange" Header="参数管理" Click="menu_mange_Click" ></MenuItem>
                 <MenuItem x:Name="menu_changePwd" Header="密码变更" Click="menu_changePwd_Click" ></MenuItem>
-                <Separator/>
+                <Separator />
                 <MenuItem  x:Name="menu_Exit" Header="E_xit" InputGestureText="ctrl+e" Click="menu_Exit_Click">
                 </MenuItem>
             </MenuItem>
         </Menu>
         <Border Grid.Row="1">
-            <DockPanel x:Name="wpanel"/>
+            <DockPanel x:Name="wpanel" />
         </Border>
         <StatusBar  Grid.Row="2">
-            <StatusBarItem x:Name="barTimer" Content="StatusBarItem" Height="25" VerticalAlignment="Top"/>
-            <StatusBarItem x:Name="barUser" Content="StatusBarItem" Height="25" VerticalAlignment="Top"/>
+            <StatusBarItem x:Name="barTimer" Content="StatusBarItem" Height="25" VerticalAlignment="Top" />
+            <StatusBarItem x:Name="barUser" Content="StatusBarItem" Height="25" VerticalAlignment="Top" />
         </StatusBar>
-
     </Grid>
 </Window>

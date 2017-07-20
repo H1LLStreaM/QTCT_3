@@ -67,6 +67,8 @@ namespace QTCT_3
                     this.Cursor = Cursors.Arrow;
                     frmMain Main = new frmMain();
                     Main.Show();
+                    if (Global.g_userrole == 7 || Global.g_userrole == 8 || Global.g_userrole == 9)
+                        Main.autoAlert();
                     this.Close();
                 }
                 else
